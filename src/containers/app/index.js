@@ -3,7 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import Inbox from '../inbox';
 import WriteMessage from '../writeMessage';
-import './App.css';
+import './index.css';
 
 const App = () =>
   <div>
