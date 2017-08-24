@@ -1,20 +1,21 @@
 import React from 'react';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import { ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 import moment from 'moment';
+import FontAwesome from 'react-fontawesome';
 
 import './messagesList.css';
 
 const DATE_FORMAT = 'ddd DD MMMM, H:mm';
 
-export default ({ messages, currentMessage, selectMessage }) =>
+export default ({ messages, currentMessage, selectMessage, deleteMessage }) =>
   <ListGroup>
-    {messages.map((message, i) => {
-      const active = currentMessage === i;
+    {messages.map((message, index) => {
+      const active = currentMessage === index;
       return (
         <ListGroupItem
           key={message.time_sent}
           active={active}
-          onClick={() => selectMessage(i)}
+          onClick={() => selectMessage(index)}
           className={message.read ? '' : 'MessageListRead'}
         >
           <span className="MessageListLabel">From:</span>&nbsp;
@@ -25,6 +26,16 @@ export default ({ messages, currentMessage, selectMessage }) =>
           <br />
           <span className="MessageListLabel">Sent:</span>&nbsp;
           <span>{moment.unix(message.time_sent).format(DATE_FORMAT)}</span>
+
+          <Button
+            className="MessageListDelete"
+            onClick={(e) => {
+              deleteMessage(message);
+              e.stopPropagation();
+            }}
+          >
+            <FontAwesome name="trash" />
+          </Button>
         </ListGroupItem>
       );
     })}

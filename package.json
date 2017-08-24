@@ -3,22 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.16.2",
     "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
     "husky": "^0.14.3",
     "lint-staged": "^4.0.3",
-    "moment": "^2.18.1",
-    "prettier": "^1.5.3",
-    "react": "^15.6.1",
-    "react-bootstrap": "^0.31.2",
-    "react-dom": "^15.6.1",
-    "react-redux": "^5.0.6",
-    "react-router-dom": "^4.1.2",
-    "react-router-redux": "next",
-    "react-scripts": "1.0.11",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "prettier": "^1.5.3"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
@@ -33,5 +22,25 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "http://localhost/test"
+  "homepage": "http://localhost/test",
+  "devDependencies": {
+    "axios": "^0.16.2",
+    "enzyme": "^2.9.1",
+    "enzyme-redux": "^0.1.6",
+    "jest-cli": "^20.0.4",
+    "moment": "^2.18.1",
+    "react": "^15.6.1",
+    "react-bootstrap": "^0.31.2",
+    "react-dom": "^15.5.4",
+    "react-fontawesome": "^1.6.1",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.0",
+    "react-router-redux": "^5.0.0-alpha.6",
+    "react-scripts": "^1.0.11",
+    "react-test-renderer": "^15.6.1",
+    "redux": "^3.7.2",
+    "redux-test-utils": "^0.1.2",
+    "redux-thunk": "^2.2.0",
+    "rewire": "^2.5.2"
+  }
 }

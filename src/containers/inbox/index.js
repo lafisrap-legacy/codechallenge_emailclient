@@ -3,7 +3,7 @@ import { push } from 'react-router-redux';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Table } from 'react-bootstrap';
-import { getMessages, markMessage } from '../../actions';
+import { getMessages, markMessage, deleteMessage } from '../../actions';
 import MessagesList from './messagesList';
 import MessageContent from './messageContent';
 
@@ -28,9 +28,8 @@ class Inbox extends Component {
     const { messages, markMessage } = this.props;
     const { currentMessage } = this.state;
 
-    if (!messages.length) return;
+    if (!messages.length || !messages[currentMessage]) return;
 
-    console.log(7, messages[currentMessage]);
     markMessage(messages[currentMessage].id);
   }
 
@@ -38,6 +37,21 @@ class Inbox extends Component {
     this.setState({
       currentMessage: message
     });
+  }
+
+  deleteMessage(message) {
+    const { messages, deleteMessage } = this.props;
+    const { currentMessage } = this.state;
+    const index = messages.indexOf(message);
+
+    deleteMessage(message.id);
+
+    // Move selection one up, when it is below the deleted
+    if( currentMessage > index ) this.setState({
+      currentMessage: currentMessage - 1 
+    })
+
+    this.forceUpdate(); // Necessary after the use of e.stopPropagation()
   }
 
   render() {
@@ -59,6 +73,7 @@ class Inbox extends Component {
                 messages={messages}
                 currentMessage={currentMessage}
                 selectMessage={message => this.selectMessage(message)}
+                deleteMessage={message => this.deleteMessage(message)}
               />
             </td>
             <td className="InboxMessageContent">
@@ -81,6 +96,7 @@ const mapDispatchToProps = dispatch =>
     {
       getMessages,
       markMessage,
+      deleteMessage,
       changePage: () => push('/write')
     },
     dispatch

@@ -5,3 +5,9 @@
 .MessageListRead {
   background-color: #bdfcbd !important;
 }
+
+.MessageListDelete {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}

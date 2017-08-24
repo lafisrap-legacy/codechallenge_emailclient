@@ -32,7 +32,7 @@ export default (state = initialState, action) => {
 
       return {
         ...state,
-        messages: state.messages.concat(newMessages),
+        messages: newMessages,
         isLoading: false
       };
 
@@ -47,7 +47,10 @@ export default (state = initialState, action) => {
       };
 
     case DELETE_MAIL:
-      messages.splice(messages.indexOf(action.payload), 1);
+      const m = messages.find(message => message.id === action.payload),
+        index = messages.indexOf(m);
+
+      if (index > -1) messages.splice(index, 1);
 
       return {
         ...state,

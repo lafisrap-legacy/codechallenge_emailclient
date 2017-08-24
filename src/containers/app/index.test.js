@@ -1,8 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { shallow } from 'enzyme';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import App from './index';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+it('creates an App component', () => {
+  // Render a checkbox with label in the document
+  const app = shallow(<App />);
+
+  expect(app.find(Nav)).toHaveLength(1);
+  expect(app.find(Navbar)).toHaveLength(1);
+  expect(app.find(NavItem)).toHaveLength(2);
 });
