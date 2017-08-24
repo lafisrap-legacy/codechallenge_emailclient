@@ -1,0 +1,7 @@
+.MessageListLabel {
+  font-weight: bold;
+}
+
+.MessageListRead {
+  background-color: #bdfcbd !important;
+}

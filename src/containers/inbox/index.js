@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { push } from 'react-router-redux';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Panel, Table } from 'react-bootstrap';
-import { getMessages } from '../../modules/messages';
+import { Table } from 'react-bootstrap';
+import { getMessages, markMessage } from '../../actions';
 import MessagesList from './messagesList';
 import MessageContent from './messageContent';
+
 import './index.css';
 
 class Inbox extends Component {
@@ -15,6 +16,22 @@ class Inbox extends Component {
     this.state = {
       currentMessage: 0
     };
+
+    props.getMessages();
+  }
+
+  componentDidMount() {
+    this.selectMessage(0);
+  }
+
+  componentDidUpdate() {
+    const { messages, markMessage } = this.props;
+    const { currentMessage } = this.state;
+
+    if (!messages.length) return;
+
+    console.log(7, messages[currentMessage]);
+    markMessage(messages[currentMessage].id);
   }
 
   selectMessage(message) {
@@ -24,7 +41,7 @@ class Inbox extends Component {
   }
 
   render() {
-    const { messages, changePage, getMessages } = this.props;
+    const { messages } = this.props;
     const { currentMessage } = this.state;
 
     return (
@@ -49,14 +66,6 @@ class Inbox extends Component {
             </td>
           </tr>
         </tbody>
-        <p>
-          <button onClick={() => changePage()}>
-            Go to about page via redux
-          </button>
-        </p>
-        <p>
-          <button onClick={getMessages}>Get Messages</button>
-        </p>
       </Table>
     );
   }
@@ -71,6 +80,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       getMessages,
+      markMessage,
       changePage: () => push('/write')
     },
     dispatch

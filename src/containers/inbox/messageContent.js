@@ -1,11 +1,12 @@
 import React from 'react';
-import { Panel } from 'react-bootstrap';
+
+import './messageContent.css';
 
 export default ({ message }) => {
   const content = (message && message.message) || '';
 
   return (
-    <span>
+    <span className="InboxContent">
       {content}
     </span>
   );
