@@ -1,6 +1,16 @@
 # Messaging Client
 
-Prototype of a Messaging Client, with .
+Prototype of a Messaging Client, using
+
+- React / Redux
+- React Router
+- Redux Thunk
+- React Bootstrap
+- Axios
+- Moment
+- Font Awesome
+- Jest
+- Enzyme
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
@@ -15,13 +25,13 @@ npm install
 yarn start
 ```
 
-Testing with Jest and Enzyme.
+Testing:
 
 ```
 yarn test
 ```
 
-Test files are named *test.js
+Test files are named ```*test.js``` and placed next to the source files.
 
 
 ## Usage
