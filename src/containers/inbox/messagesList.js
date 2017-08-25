@@ -1,3 +1,10 @@
+//-------------------------------------------------------------
+// Messaging Client (Prototype)
+//
+// inbox/messagesList.js
+//
+// Messages list on the left side of the inbox
+//--------------------------------------------------------------
 import React from 'react';
 import { ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 import moment from 'moment';
@@ -26,10 +33,9 @@ export default ({ messages, currentMessage, selectMessage, deleteMessage }) =>
           <br />
           <span className="MessageListLabel">Sent:</span>&nbsp;
           <span>{moment.unix(message.time_sent).format(DATE_FORMAT)}</span>
-
           <Button
             className="MessageListDelete"
-            onClick={(e) => {
+            onClick={e => {
               deleteMessage(message);
               e.stopPropagation();
             }}

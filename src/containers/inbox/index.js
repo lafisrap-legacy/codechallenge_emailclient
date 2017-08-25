@@ -1,3 +1,10 @@
+//-------------------------------------------------------------
+// Messaging Client (Prototype)
+//
+// inbox/index.js
+//
+// Inbox root component
+//--------------------------------------------------------------
 import React, { Component } from 'react';
 import { push } from 'react-router-redux';
 import { bindActionCreators } from 'redux';
@@ -47,9 +54,10 @@ class Inbox extends Component {
     deleteMessage(message.id);
 
     // Move selection one up, when it is below the deleted
-    if( currentMessage > index ) this.setState({
-      currentMessage: currentMessage - 1 
-    })
+    if (currentMessage > index)
+      this.setState({
+        currentMessage: currentMessage - 1
+      });
 
     this.forceUpdate(); // Necessary after the use of e.stopPropagation()
   }

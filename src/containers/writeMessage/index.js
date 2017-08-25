@@ -1,3 +1,10 @@
+//-------------------------------------------------------------
+// Messaging Client (Prototype)
+//
+// writeMessage/index.js
+//
+// Message composing component
+//--------------------------------------------------------------
 import React from 'react';
 
 export default () =>

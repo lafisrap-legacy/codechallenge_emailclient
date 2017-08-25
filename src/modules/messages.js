@@ -1,3 +1,10 @@
+//-------------------------------------------------------------
+// Messaging Client (Prototype)
+//
+// modules/messages.js
+//
+// Reducer for handling messages
+//--------------------------------------------------------------
 export const LOADING_MESSAGES = 'messages/LOADING_MESSAGES';
 export const MESSAGES_LOADED = 'messages/GET_MESSAGES';
 export const MARK_MAIL = 'messages/MARK_MAIL';

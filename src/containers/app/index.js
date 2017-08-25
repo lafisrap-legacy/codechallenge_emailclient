@@ -1,3 +1,10 @@
+//-------------------------------------------------------------
+// Messaging Client (Prototype)
+//
+// app/index.js
+//
+// Main app navigation
+//--------------------------------------------------------------
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
@@ -10,7 +17,7 @@ const App = () =>
     <Navbar>
       <Navbar.Header>
         <Navbar.Brand>
-          <a>Email Client</a>
+          <a>Message Client</a>
         </Navbar.Brand>
       </Navbar.Header>
       <Nav>
@@ -18,7 +25,7 @@ const App = () =>
           <Link to="/">Inbox</Link>
         </NavItem>
         <NavItem eventKey={2}>
-          <Link to="/write">Write Email</Link>
+          <Link to="/write">Write Message</Link>
         </NavItem>
       </Nav>
     </Navbar>

@@ -1,3 +1,10 @@
+//-------------------------------------------------------------
+// Messaging Client (Prototype)
+//
+// actions.js
+//
+// All Redux actions are found in this file
+//--------------------------------------------------------------
 import axios from 'axios';
 import {
   LOADING_MESSAGES,
@@ -13,7 +20,7 @@ export const getMessages = () => {
     });
 
     return axios
-      .get('../../data/messages.json')
+      .get('data/messages.json')
       .then(response => {
         dispatch({
           type: MESSAGES_LOADED,
